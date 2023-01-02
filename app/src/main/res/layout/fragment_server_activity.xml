@@ -16,6 +16,10 @@
         <variable
             name="loading"
             type="Boolean" />
+
+        <variable
+            name="filter"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +27,15 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:background="@color/fragmentBackground">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/filter_menu"
+            app:title="@{filter}"
+            tools:title="Relaxation"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardFront"
@@ -63,7 +76,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Scorpion"/>
+                    tools:text="Aprender kotlin"/>
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/Button.Rounded"
@@ -130,7 +143,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Scorpion"/>
+                    tools:text="Aprender Kotlin"/>
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/Button.Rounded"

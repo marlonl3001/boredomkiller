@@ -47,4 +47,10 @@
         <item name="elevation">0.1dp</item>
         <item name="android:background">@color/black_alpha_40</item>
     </style>
+
+    <style name="FilterTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:paddingVertical">@dimen/margin16</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font18</item>
+    </style>
 </resources>

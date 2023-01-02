@@ -19,10 +19,14 @@ open class MainViewModel(
     private val _activities = MutableLiveData<List<UserActivity>>()
     var activities: LiveData<List<UserActivity>> = _activities
 
+    private val _activityType = MutableLiveData(ActivityType.RANDOM)
+    var activityType: LiveData<ActivityType> = _activityType
+
     fun fetchActivity(activityType: ActivityType? = null) {
         launch(
             block = {
-                _userActivity.postValue(useCase.getActivity(activityType))
+                _userActivity.postValue(useCase.getActivity(
+                    activityType ?: _activityType.value))
             }
         )
     }
@@ -100,6 +104,11 @@ open class MainViewModel(
                 _activities.postValue(useCase.getUserActivities())
             }
         )
+    }
+
+    fun sortActivities(activityType: ActivityType) {
+        _activityType.postValue(activityType)
+        fetchActivity(activityType)
     }
 
 }

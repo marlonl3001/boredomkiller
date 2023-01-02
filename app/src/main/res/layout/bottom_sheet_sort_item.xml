@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        tools:background="@color/colorCooking">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/FilterTextStyle"
+            android:id="@+id/txtSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/margin8"
+            android:layout_gravity="center"
+            android:paddingVertical="@dimen/margin8"
+            tools:drawableStart="@drawable/ic_random"
+            tools:text="Overview"/>
+    </FrameLayout>
+
+</layout>

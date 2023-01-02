@@ -8,6 +8,7 @@ import br.com.mdr.base.domain.ActivityType
 @ColorRes
 fun String.getActivityColor() =
     when (this) {
+        ActivityType.RANDOM.type -> R.color.colorRandom
         ActivityType.BUSYWORK.type -> R.color.colorBusy
         ActivityType.CHARITY.type -> R.color.colorCharity
         ActivityType.COOKING.type -> R.color.colorCooking
@@ -23,6 +24,7 @@ fun String.getActivityColor() =
 @DrawableRes
 fun String.getActivityIcon() =
     when (this) {
+        ActivityType.RANDOM.type -> R.drawable.ic_random
         ActivityType.BUSYWORK.type -> R.drawable.ic_busywork
         ActivityType.CHARITY.type -> R.drawable.ic_charity
         ActivityType.COOKING.type -> R.drawable.ic_cooking

@@ -3,14 +3,14 @@ package br.com.mdr.boredomkiller.presentation.fragment
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
 import android.os.Bundle
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import br.com.mdr.base.domain.UserActivityResponse
 import br.com.mdr.boredomkiller.R
 import br.com.mdr.boredomkiller.databinding.FragmentServerActivityBinding
 import br.com.mdr.boredomkiller.presentation.viewmodel.MainViewModel
+import br.com.mdr.boredomkiller.utils.extension.showBottomSheet
 import br.com.mdr.boredomkiller.utils.extension.successSnack
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -41,9 +41,37 @@ class ServerActivityFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupToolbar()
         setupCards()
         setupViewModel()
         setupListeners()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.filter_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.filter -> {
+                openSortBottomSheet()
+            }
+        }
+        return true
+    }
+
+    private fun setupToolbar() {
+        setHasOptionsMenu(true)
+        (activity as? AppCompatActivity)?.setSupportActionBar(binding?.toolbar)
+    }
+
+    private fun openSortBottomSheet() {
+        val bottomSheet = SortBottomSheetFragment().apply {
+            itemClick = { sortItem ->
+                viewModel.sortActivities(sortItem)
+            }
+        }
+        showBottomSheet(bottomSheet)
     }
 
     private fun setupCards() {
@@ -77,7 +105,13 @@ class ServerActivityFragment : Fragment() {
                 binding?.root?.successSnack(it)
             }
 
-            fetchActivity(null)
+            activityType.observe(viewLifecycleOwner) {
+                binding?.filter = String.format(
+                    getString(R.string.activities_suggestion), it.type
+                )
+            }
+
+            fetchActivity()
         }
     }
 

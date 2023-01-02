@@ -36,6 +36,11 @@ class MyActivitiesFragment : Fragment() {
         setupViewModel()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
     private fun setupViewModel() {
         with(viewModel) {
             viewModel.activities.observe(viewLifecycleOwner) {

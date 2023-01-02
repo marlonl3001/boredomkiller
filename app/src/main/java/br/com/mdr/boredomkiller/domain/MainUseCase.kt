@@ -11,8 +11,15 @@ class MainUseCase(
     private val repository: MainRepository
 ) {
 
-    suspend fun getActivity(activityType: ActivityType?): UserActivityResponse? =
-        repository.getActivity(activityType?.type)
+    suspend fun getActivity(activityType: ActivityType?): UserActivityResponse? {
+        val currentType =
+            if (activityType == ActivityType.RANDOM)
+                null
+            else
+                activityType?.type
+
+        return repository.getActivity(currentType)
+    }
 
     suspend fun getActivitiesInProgress(): List<UserActivity> =
         repository.getActivitiesInProgress()

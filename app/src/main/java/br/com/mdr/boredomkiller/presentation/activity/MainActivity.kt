@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 binding.loading = it
             }
             apiError.observe(this@MainActivity) {
-                binding.error = it
+                binding.apiError = it
             }
         }
     }

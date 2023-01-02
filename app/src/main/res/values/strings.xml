@@ -11,4 +11,6 @@
     <string name="activity_added">Atividade adicionada!</string>
     <string name="activity_started">Atividade iniciada!</string>
     <string name="activity_finished">Atividade finalizada!</string>
+    <string name="filter">Filtrar</string>
+    <string name="activities_suggestion">Sugestão de atividades %s</string>
 </resources>
