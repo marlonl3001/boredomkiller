@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#470ff4</color>
+    <color name="colorPrimaryDark">#2E00B8</color>
+    <color name="colorAccent">#5A25F8</color>
+    <color name="background800">#424242</color>
+
+    <color name="textPrimary">#151515</color>
+    <color name="textSecondary">#2B292B</color>
+    <color name="toolbarIconTint">#212121</color>
+
+    <color name="black_alpha_40">#33000000</color>
+
+    <color name="fragmentBackground">#DFDFDF</color>
+
+    <color name="colorSuccess">#0ead69</color>
+
+</resources>

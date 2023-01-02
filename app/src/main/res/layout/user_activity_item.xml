@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="userActivity"
+            type="br.com.mdr.base.domain.UserActivity" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/margin8"
+        app:colorSrc="@{userActivity.activityColor}"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:backgroundTint="@color/colorCharity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin16"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:imageSrc="@{userActivity.activityIcon}"
+                tools:src="@drawable/ic_activity"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TitleTextStyle"
+                android:id="@+id/txtActivityDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{userActivity.activity}"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/imgIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Scorpion"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Button.Rounded"
+                android:id="@+id/btnAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin16"
+                android:text="@string/finish_activity"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_check"
+                app:layout_constraintTop_toBottomOf="@id/txtFinishDate"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Button.Outlined"
+                android:id="@+id/btnGiveUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin16"
+                android:text="@string/give_up"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_give_up"
+                app:layout_constraintBottom_toBottomOf="@id/btnAction"
+                app:layout_constraintStart_toEndOf="@id/btnAction"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text.Secondary"
+                android:id="@+id/txtActivityStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{userActivity.status.status}"
+                app:layout_constraintTop_toBottomOf="@id/txtActivityDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Iniciada"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Text.Secondary"
+                android:id="@+id/txtFinishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{userActivity.date}"
+                app:gone="@{userActivity.date == null}"
+                app:layout_constraintTop_toBottomOf="@id/txtActivityStatus"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="30/12/2022"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

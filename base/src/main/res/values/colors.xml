@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBusy">#EC5555</color>
+    <color name="colorCharity">#3bceac</color>
+    <color name="colorCooking">#ffd23f</color>
+    <color name="colorDiy">#CEED42</color>
+    <color name="colorEducational">#0ead69</color>
+    <color name="colorMusic">#fe5d26</color>
+    <color name="colorRecreational">#fecdaa</color>
+    <color name="colorRelaxation">#b9d6f2</color>
+    <color name="colorSocial">#3066be</color>
+</resources>

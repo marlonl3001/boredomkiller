@@ -1,0 +1,30 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply from: "$rootDir/tools/versions.gradle"
+
+android {
+    compileSdkVersion deps.version.compileSdk
+
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+    api deps.test.rules
+    api deps.test.junit
+    api deps.test.coreTesting
+    api deps.koin.test
+    api deps.koin.viewmodel
+    api deps.test.mockk
+    api deps.test.mockkAndroid
+
+    implementation deps.coroutines.test
+    implementation deps.okhttp.mockWebServer
+
+    implementation project(path: ":base")
+}

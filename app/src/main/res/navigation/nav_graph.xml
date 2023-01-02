@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="br.com.mdr.boredomkiller.presentation.fragment.ServerActivityFragment"
+        android:label="ServerActivityFragment"
+        tools:layout="@layout/fragment_server_activity">
+        <action
+            android:id="@+id/action_serverActivityFragment_to_activitiesInProgressFragment"
+            app:destination="@id/in_progress" />
+    </fragment>
+    <fragment
+        android:id="@+id/in_progress"
+        android:name="br.com.mdr.boredomkiller.presentation.fragment.ActivitiesInProgressFragment"
+        android:label="ActivitiesInProgressFragment"
+        tools:layout="@layout/fragment_activities_in_progress">
+        <action
+            android:id="@+id/action_activitiesInProgressFragment_to_myActivitiesFragment"
+            app:destination="@id/my_activities" />
+    </fragment>
+    <fragment
+        android:id="@+id/my_activities"
+        android:name="br.com.mdr.boredomkiller.presentation.fragment.MyActivitiesFragment"
+        android:label="MyActivitiesFragment"
+        tools:layout="@layout/fragment_my_activities"/>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="br.com.mdr.boredomkiller.presentation.fragment.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_home"
+            app:destination="@id/home"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>

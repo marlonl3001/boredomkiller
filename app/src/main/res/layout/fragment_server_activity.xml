@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="frontUserActivity"
+            type="br.com.mdr.base.domain.UserActivityResponse" />
+
+        <variable
+            name="backUserActivity"
+            type="br.com.mdr.base.domain.UserActivityResponse" />
+
+        <variable
+            name="loading"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/fragmentBackground">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFront"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin32"
+            android:layout_gravity="center"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="@dimen/margin8"
+            app:colorSrc="@{frontUserActivity.activityColor}"
+            app:gone="@{loading}"
+            app:layout_constraintBottom_toTopOf="@id/btnChange"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:backgroundTint="@color/colorBusy">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:padding="@dimen/margin16"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:imageSrc="@{frontUserActivity.activityIcon}"
+                    tools:src="@drawable/ic_activity"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TitleTextStyle"
+                    android:id="@+id/txtActivityDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{frontUserActivity.activity}"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Scorpion"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Button.Rounded"
+                    android:id="@+id/btnStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin16"
+                    android:text="@string/start_activity"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_start"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Button.Outlined"
+                    android:id="@+id/btnAddToFavorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin16"
+                    android:text="@string/add_to_my_activities"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_add"
+                    app:layout_constraintBottom_toBottomOf="@id/btnStart"
+                    app:layout_constraintStart_toEndOf="@id/btnStart"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin32"
+            android:layout_gravity="center"
+            app:cardElevation="3dp"
+            app:cardCornerRadius="@dimen/margin8"
+            app:colorSrc="@{backUserActivity.activityColor}"
+            app:gone="@{loading}"
+            app:layout_constraintBottom_toTopOf="@id/btnChange"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:backgroundTint="@color/colorCharity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:padding="@dimen/margin16"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:imageSrc="@{backUserActivity.activityIcon}"
+                    tools:src="@drawable/ic_activity"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/TitleTextStyle"
+                    android:id="@+id/txtDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{backUserActivity.activity}"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Scorpion"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Button.Rounded"
+                    android:id="@+id/btnBackStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin16"
+                    android:text="@string/start_activity"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_start"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Button.Outlined"
+                    android:id="@+id/btnBackAddFavorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin16"
+                    android:text="@string/add_to_my_activities"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_add"
+                    app:layout_constraintBottom_toBottomOf="@id/btnBackStart"
+                    app:layout_constraintStart_toEndOf="@id/btnBackStart"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Button.Rounded"
+            android:id="@+id/btnChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/margin16"
+            android:layout_marginHorizontal="@dimen/margin16"
+            android:text="@string/change_activity"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
