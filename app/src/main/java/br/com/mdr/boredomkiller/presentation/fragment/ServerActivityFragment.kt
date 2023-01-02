@@ -68,6 +68,7 @@ class ServerActivityFragment : Fragment() {
     private fun openSortBottomSheet() {
         val bottomSheet = SortBottomSheetFragment().apply {
             itemClick = { sortItem ->
+                canAnimate = true
                 viewModel.sortActivities(sortItem)
             }
         }
