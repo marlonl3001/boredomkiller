@@ -14,6 +14,17 @@ android {
     }
 }
 
+ext.versions = [
+    androidx    : [
+        espresso    : "3.3.0",
+        uiautomator : "2.2.0",
+        arch        : "2.1.0",
+        navTest     : "2.4.2",
+        contrib    : "3.3.0",
+        testcore    : "1.4.0",
+    ]
+]
+
 dependencies {
     api deps.test.rules
     api deps.test.junit
@@ -22,6 +33,14 @@ dependencies {
     api deps.koin.viewmodel
     api deps.test.mockk
     api deps.test.mockkAndroid
+
+    api("androidx.test:runner:$versions.androidx.testcore")
+    api("androidx.test.espresso:espresso-core:$versions.androidx.espresso")
+    api("androidx.test.espresso:espresso-intents:$versions.androidx.espresso")
+    api("androidx.test.uiautomator:uiautomator:$versions.androidx.uiautomator")
+    api("androidx.test.espresso:espresso-contrib:$versions.androidx.contrib")
+    api("androidx.navigation:navigation-testing:$versions.androidx.navTest")
+    api "androidx.fragment:fragment-testing:$deps.version.fragment"
 
     implementation deps.coroutines.test
     implementation deps.okhttp.mockWebServer

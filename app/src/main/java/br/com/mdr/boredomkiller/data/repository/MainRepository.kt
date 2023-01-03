@@ -3,7 +3,7 @@ package br.com.mdr.boredomkiller.data.repository
 import br.com.mdr.boredomkiller.data.ActivitiesApi
 import br.com.mdr.base.domain.UserActivityResponse
 import br.com.mdr.base.domain.UserActivityStatus
-import br.com.mdr.boredomkiller.data.dao.RepositoryDAO
+import br.com.mdr.boredomkiller.data.dao.UserDAO
 import br.com.mdr.base.domain.UserActivity
 
 interface MainRepository {
@@ -17,7 +17,7 @@ interface MainRepository {
 
 class MainRepositoryImpl(
     private val api: ActivitiesApi,
-    private val dao: RepositoryDAO
+    private val dao: UserDAO
 ): MainRepository {
 
     override suspend fun getActivity(activityType: String?): UserActivityResponse? =

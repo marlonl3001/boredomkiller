@@ -6,5 +6,5 @@ import br.com.mdr.base.domain.UserActivity
 
 @Database(entities = [UserActivity::class], version = 1, exportSchema = false)
 abstract class UserDatabase: RoomDatabase() {
-    abstract fun getRepositoryDAO(): RepositoryDAO
+    abstract fun getUserDAO(): UserDAO
 }

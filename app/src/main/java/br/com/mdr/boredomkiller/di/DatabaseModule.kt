@@ -16,6 +16,6 @@ val databaseModule = module {
 
     single {
         val database = get<UserDatabase>()
-        database.getRepositoryDAO()
+        database.getUserDAO()
     }
 }

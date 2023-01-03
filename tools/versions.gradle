@@ -1,6 +1,6 @@
 def version = [:]
 version.cardView = '1.0.0'
-version.fragment = '1.4.1'
+version.fragment = '1.5.5'
 version.constraintLayout = "2.1.4"
 version.glide = '4.13.2'
 version.gradle = '7.0.0'
@@ -81,7 +81,7 @@ test.rules = "androidx.test:rules:$version.test_rules"
 test.junit = "androidx.test.ext:junit:$version.junit"
 test.coreTesting = "androidx.arch.core:core-testing:$version.core_testing"
 test.mockk = "io.mockk:mockk:$version.mockk"
-test.mockkAndroid = "io.mockk:mockk:$version.mockk"
+test.mockkAndroid = "io.mockk:mockk-android:$version.mockk"
 
 def dependencies = [:]
 dependencies.androidx = androidx

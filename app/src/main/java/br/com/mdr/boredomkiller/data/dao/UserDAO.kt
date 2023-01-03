@@ -5,7 +5,7 @@ import br.com.mdr.base.domain.UserActivityStatus
 import br.com.mdr.base.domain.UserActivity
 
 @Dao
-interface RepositoryDAO {
+interface UserDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(activity: UserActivity)
 
